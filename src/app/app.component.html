@@ -1,3 +1,69 @@
-<h1>
-  {{title}}
-</h1>
+<!--Navbar-->
+<nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <strong>RatingApp</strong>
+    </a>
+    <!--<div class="collapse navbar-collapse" id="navbarNav1">-->
+    <!--<ul class="navbar-nav mr-auto">-->
+    <!--<li class="nav-item active">-->
+    <!--<a class="nav-link">Home <span class="sr-only">(current)</span></a>-->
+    <!--</li>-->
+    <!--<li class="nav-item dropdown btn-group">-->
+    <!--<a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome!</a>-->
+    <!--<div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">-->
+    <!--<a class="dropdown-item" (click)="signout()">Logout</a>-->
+    <!--</div>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <div style="float: right"  class=" navbar-collapse" id="navbarNav1">
+      <div class="ml-auto">
+        <ul class="navbar-nav ml-auto">
+          <div *ngIf="isLoggedIn">
+            <li class="nav-item dropdown btn-group">
+              <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome {{emailid}}!
+              </a>
+              <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                <a class="dropdown-item" (click)="logout()">Log Out</a>
+                <!--<a class="dropdown-item">Something else here</a>-->
+              </div>
+            </li>
+          </div>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<footer class="page-footer blue center-on-small-only">
+
+  <!--Footer Links-->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!--First column-->
+      <div class="col-md-12 text-center">
+        <h5 class="title">Rating App</h5>
+        <p>Rate Your Favourites!</p>
+      </div>
+      <!--/.First column-->
+
+      <!--Second column-->
+      <!--/.Second column-->
+    </div>
+  </div>
+  <!--/.Footer Links-->
+
+  <!--Copyright-->
+  <div class="footer-copyright">
+    <div class="container-fluid">
+      © 2017 Copyright: <a href="https://hemanrnjn.github.io/My-Portfolio/index.html"> Himanshu Ranjan </a>
+
+    </div>
+  </div>
+  <!--/.Copyright-->
+
+</footer>

@@ -1,0 +1,70 @@
+<br>
+<div class="container">
+  <div style="margin: auto" class="card testimonial-card col-md-6">
+    <!--Avatar-->
+    <div class="card-block">
+      <!--Name-->
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="form-header blue-gradient">
+        <h2>WELCOME</h2>
+      </div>
+      <br>
+      <div class="row auth-heading">
+        <div id="register-tab" class="col-6 text-center auth-tabs active-tab" (click)="registerTab()">Register</div>
+        <div id="login-tab" class="col-6 text-center auth-tabs" (click)="loginTab()">Login</div>
+      </div>
+      <br>
+      <span class="error" *ngIf="error">{{ error }}</span>
+      <!--Body-->
+      <form [formGroup]="registerForm" (ngSubmit)="onRegSubmit()">
+        <div class="register" *ngIf="registerPage">
+          <div class="md-form">
+            <i class="fa fa-user prefix custom-icon"></i>
+            <input id="regname" formControlName="regname" type="text"  class="form-control" placeholder="Your Name">
+          </div>
+          <div class="md-form">
+            <i class="fa fa-user prefix custom-icon"></i>
+            <input id="regusername" formControlName="regusername" type="text"  class="form-control" placeholder="Your Username">
+          </div>
+          <!--<div *ngIf="invaliduser"><h5 style="color: red;">Username Already Taken!</h5></div>-->
+          <div class="md-form">
+            <i class="fa fa-envelope prefix custom-icon"></i>
+            <input type="text" id="regemail" formControlName="regemail" class="form-control" placeholder="Your Email">
+          </div>
+          <!--<div *ngIf="invaliduser"><h5 style="color: red;">Email Already Registered!</h5></div>-->
+          <div class="md-form">
+            <i class="fa fa-lock prefix custom-icon"></i>
+            <input type="password" id="regpassword" formControlName="regpassword" class="form-control" placeholder="Your password">
+          </div>
+          <div class="text-center">
+            <button class="btn register-btn" type="submit" [disabled]="!registerForm.valid">Sign up</button>
+          </div>
+          <br>
+          <br>
+        </div>
+      </form>
+      <div class="login" *ngIf="loginPage">
+        <!--Body-->
+        <form [formGroup]="loginForm" (ngSubmit)="onLogSubmit()">
+          <div class="md-form">
+            <i class="fa fa-envelope prefix custom-icon"></i>
+            <input type="text" id="logemail" formControlName="logemail" class="form-control" placeholder="Your email">
+          </div>
+          <div class="md-form">
+            <i class="fa fa-lock prefix custom-icon"></i>
+            <input type="password" id="logpassword" formControlName="logpassword" class="form-control" placeholder="Your password">
+          </div>
+          <div class="text-center">
+            <button class="btn login-btn" type="submit" [disabled]="!loginForm.valid">Login</button>
+          </div>
+        </form>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="snackbar"></div>

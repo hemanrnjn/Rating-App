@@ -1,0 +1,49 @@
+<br>
+<div class="card col-8" style="margin:auto;" *ngIf="isDataAvailable">
+
+  <!--Card image-->
+  <br>
+  <div class="view overlay hm-white-slight" style="margin: auto;">
+    <img src="../../assets/img/user.jpg" class="img-fluid" alt="">
+  </div>
+  <!--/.Card image-->
+
+  <!--Card content-->
+  <div class="card-block" *ngIf="loggedUser">
+    <h4>Welcome {{authusername}}!</h4>
+    <input type="text" #search class="form-control" (input)="0" placeholder="Search User Name..">
+    <a class="btn btn-primary round-btn" [routerLink]="['/user' , search.value]" >Go!</a>
+  </div>
+  <div class="card-block" *ngIf="invaliduser">
+    <h4>No Such User Exists!</h4>
+    <a class="btn btn-primary round-btn" (click)="goToHome()" *ngIf="isLoggedIn"><- Go Back!</a>
+    <a class="btn btn-primary round-btn" (click)="goToAuth()" *ngIf="!isLoggedIn">Register or Login to Rate!</a>
+  </div>
+  <div class="card-block" *ngIf="validuser">
+    <!--Title-->
+    <h4 class="card-title">{{username}}</h4>
+    <!--Text-->
+    <div *ngIf="!isLoggedIn">
+      <a class="btn btn-primary round-btn" (click)="goToAuth()">Login to Rate!</a>
+    </div>
+    <div *ngIf="isLoggedIn">
+    <p class="card-text">Rate This User!</p>
+    <a href="#" id="1" [class.bordered]="presentcount1 == 1"
+       class="btn btn-primary round-btn" (click)="uservoted($event)">1</a>
+    <a href="#" id="2" [class.bordered]="presentcount1 == 2"
+       class="btn btn-primary round-btn" (click)="uservoted($event)">2</a>
+    <a href="#" id="3" [class.bordered]="presentcount1 == 3"
+       class="btn btn-primary round-btn" (click)="uservoted($event)">3</a>
+    <a href="#" id="4" [class.bordered]="presentcount1 == 4"
+       class="btn btn-primary round-btn" (click)="uservoted($event)">4</a>
+    <a href="#" id="5" [class.bordered]="presentcount1 == 5"
+       class="btn btn-primary round-btn" (click)="uservoted($event)">5</a>
+    <br><br>
+    <div>
+      <p>{{count}} User(s) Rated</p>
+      <p>Average Rate : {{average | number : '1.1-1'}}</p>
+    </div>
+    </div>
+  </div>
+  <!--/.Card content-->
+</div>
